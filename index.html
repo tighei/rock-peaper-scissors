@@ -6,18 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css " />
+    <script
+      src="https://kit.fontawesome.com/2399160396.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
-    <div class="score">
-      <span class="splayer">player score:</span>
-      <span class="scomput">computer score:</span>
+    <h1 class="game-heading">Rock Paper Scissors</h1>
+
+    <div class="main">
+      <div class="game-board">
+        <h3>Player</h3>
+        <div class="me">
+          <img src="./img/icons8-main-ciseaux-94.png" alt="" class="scissors" />
+          <img src="./img/icons8-papier-94.png" alt="" class="paper" />
+          <img src="./img/icons8-rock-emoji-96.png" alt="" class="rock" />
+        </div>
+        <h3>Computer</h3>
+        <div class="computer mee">
+          <img src="./img/icons8-main-ciseaux-94.png" alt="" class="scissors" />
+          <img src="./img/icons8-papier-94.png" alt="" class="paper" />
+          <img src="./img/icons8-rock-emoji-96.png" alt="" class="rock" />
+        </div>
+      </div>
+      <div class="score">
+        <span class="splayer">player score:</span>
+        <span class="scomput">computer score:</span>
+        <div class="outdata"></div>
+      </div>
     </div>
-    <div>
-      <button class="rock">rock</button>
-      <button class="paper">paper</button>
-      <button class="scissors">scissors</button>
-    </div>
-    <div class="outdata"></div>
   </body>
 </html>
