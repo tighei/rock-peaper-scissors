@@ -16,27 +16,35 @@ function computerPlay() {
 // events listeners  ||   player choice
 const computerSelection = computerPlay();
 rockBtn.addEventListener("click", () => {
-    const computerSelection = computerPlay();
-    const playerSelection = "rock";
+    if (playerScore < 5 && computerScore < 5) {
+        const computerSelection = computerPlay();
+        const playerSelection = "rock";
 
-    playRound(playerSelection, computerSelection);
-    score(playerScore, computerScore);
-    scoreCheck(playerScore, computerScore);
+        playRound(playerSelection, computerSelection);
+        score(playerScore, computerScore);
+        scoreCheck(playerScore, computerScore);
+    }
 });
 paperBtn.addEventListener("click", () => {
     // eslint-disable-next-line no-shadow
-    const computerSelection = computerPlay();
-    const playerSelection = "paper";
-    playRound(playerSelection, computerSelection);
-    score(playerScore, computerScore);
-    scoreCheck(playerScore, computerScore);
+    if (playerScore < 5 && computerScore < 5) {
+        const computerSelection = computerPlay();
+        const playerSelection = "paper";
+
+        playRound(playerSelection, computerSelection);
+        score(playerScore, computerScore);
+        scoreCheck(playerScore, computerScore);
+    }
 });
 scissorsBtn.addEventListener("click", () => {
-    const computerSelection = computerPlay();
-    const playerSelection = "scissors";
-    playRound(playerSelection, computerSelection);
-    score(playerScore, computerScore);
-    scoreCheck(playerScore, computerScore);
+    if (playerScore < 5 && computerScore < 5) {
+        const computerSelection = computerPlay();
+        const playerSelection = "scissors";
+
+        playRound(playerSelection, computerSelection);
+        score(playerScore, computerScore);
+        scoreCheck(playerScore, computerScore);
+    }
 });
 
 // results functions
@@ -91,7 +99,7 @@ function score(playerScore, computerScore) {
     sc.innerText = `computer score: ${computerScore}`;
 }
 // to check the score
-function scoreCheck(playerScore, computerScore, e) {
+function scoreCheck(playerScore, computerScore) {
     if (playerScore === 5) {
         const h2 = document.createElement("h2");
         h2.innerText = `you  beat the computer ${playerScore} vs ${computerScore} `;
