@@ -17,7 +17,6 @@ function computerPlay() {
 const computerSelection = computerPlay();
 rockBtn.addEventListener("click", () => {
     if (playerScore < 5 && computerScore < 5) {
-        const computerSelection = computerPlay();
         const playerSelection = "rock";
 
         playRound(playerSelection, computerSelection);
@@ -28,7 +27,6 @@ rockBtn.addEventListener("click", () => {
 paperBtn.addEventListener("click", () => {
     // eslint-disable-next-line no-shadow
     if (playerScore < 5 && computerScore < 5) {
-        const computerSelection = computerPlay();
         const playerSelection = "paper";
 
         playRound(playerSelection, computerSelection);
@@ -38,7 +36,6 @@ paperBtn.addEventListener("click", () => {
 });
 scissorsBtn.addEventListener("click", () => {
     if (playerScore < 5 && computerScore < 5) {
-        const computerSelection = computerPlay();
         const playerSelection = "scissors";
 
         playRound(playerSelection, computerSelection);
@@ -48,20 +45,18 @@ scissorsBtn.addEventListener("click", () => {
 });
 
 // results functions
-function winnig(playerSelection) {
-    const p = document.createElement("p");
+const p = document.createElement("p");
+function wining(playerSelection) {
     p.innerText = `  you win you choose ${playerSelection}`;
     outData.appendChild(p);
     ++playerScore;
 }
 function losing(playerSelection) {
-    const p = document.createElement("p");
     p.innerText = `you lose u choose ${playerSelection}`;
     outData.appendChild(p);
     ++computerScore;
 }
 function draw() {
-    const p = document.createElement("p");
     p.innerText = "it's a draw";
     outData.appendChild(p);
 }
@@ -72,11 +67,11 @@ const playRound = function (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         draw(playerSelection);
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        winnig(playerSelection);
+        wining(playerSelection);
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         losing(playerSelection);
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        winnig(playerSelection);
+        wining(playerSelection);
     } else if (
         playerSelection === "paper" &&
         computerSelection === "scissors"
@@ -86,7 +81,7 @@ const playRound = function (playerSelection, computerSelection) {
         playerSelection === "scissors" &&
         computerSelection === "paper"
     ) {
-        winnig(playerSelection);
+        wining(playerSelection);
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         losing(playerSelection);
     }
@@ -98,15 +93,28 @@ function score(playerScore, computerScore) {
     sp.innerText = ` player score: ${playerScore}`;
     sc.innerText = `computer score: ${computerScore}`;
 }
+
+// play again button
+function playAgain() {
+    const btn = document.createElement("button");
+    btn.innerText = "play again";
+    btn.classList.add("btn");
+    outData.appendChild(btn);
+    btn.addEventListener("click", () => {
+        window.location.reload();
+    });
+}
+
 // to check the score
+const h2 = document.createElement("h2");
 function scoreCheck(playerScore, computerScore) {
     if (playerScore === 5) {
-        const h2 = document.createElement("h2");
         h2.innerText = `you  beat the computer ${playerScore} vs ${computerScore} `;
         outData.appendChild(h2);
+        playAgain();
     } else if (computerScore === 5) {
-        const h2 = document.createElement("h2");
         h2.innerText = `you  lose  the computer win ${playerScore} vs ${computerScore} `;
         outData.appendChild(h2);
+        playAgain();
     }
 }
